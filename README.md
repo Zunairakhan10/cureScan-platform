@@ -1,98 +1,81 @@
-# 💊 CureScan – AI-Powered Medicine Price Intelligence Platform
+# 💊 CureScan – AI-Powered Healthcare & Medicine Intelligence Platform
 
-> **Helping users make informed healthcare decisions through medicine price transparency, generic medicine discovery, and AI-powered assistance.**
+> **Making medicines more transparent, affordable, and accessible through intelligent technology.**
 
 ---
 
 ## 📌 Overview
 
-CureScan is an AI-powered Android application designed to help users identify medicines, verify their Maximum Retail Price (MRP), compare prices, discover affordable generic alternatives, and understand essential medicine information.
+CureScan is a modern healthcare platform designed to improve transparency in medicine pricing and help users make informed healthcare decisions.
 
-Many people unknowingly pay more than necessary because they are unaware of lower-cost generic medicines or the correct market price of branded medicines. CureScan aims to bridge this information gap by providing accurate medicine data and intelligent recommendations through a simple, user-friendly mobile application.
+The platform enables users to search medicines, verify Maximum Retail Price (MRP), discover affordable generic alternatives, compare medicine prices, and access detailed medicine information from a centralized database.
 
-This project is being developed as a real-world healthcare technology solution while following modern software engineering practices, including clean architecture, REST APIs, scalable backend development, and continuous version control.
+Beyond serving consumers, CureScan is designed as a complete healthcare ecosystem that can support pharmacies, wholesale distributors, and administrators through inventory management, medicine data management, analytics, and intelligent healthcare tools.
 
----
-
-## 🎯 Vision
-
-Millions of people overpay for medicines or lack access to reliable information about generic alternatives. CureScan aims to improve transparency in medicine pricing and make healthcare information more accessible through intelligent technology.
+The long-term vision is to integrate AI-powered assistance, barcode scanning, OCR-based medicine recognition, and real-time medicine availability, creating a scalable digital platform for the pharmaceutical industry.
 
 ---
 
-## ✨ Planned Features
+# 🎯 Vision
 
-### 🔍 Medicine Search
-
-* Search medicines by name
-* Search using generic name
-* Search by composition
-* Fast and intelligent search experience
-
-### 💰 Price Verification
-
-* View official MRP
-* Compare medicine prices
-* Help users avoid overpaying
-
-### 💊 Generic Medicine Recommendation
-
-* Discover lower-cost generic alternatives
-* Compare branded and generic medicines
-* View potential savings
-
-### 📷 Barcode Scanner
-
-* Scan medicine barcode
-* Instantly retrieve medicine information
-
-### 📝 OCR Medicine Detection
-
-* Capture a medicine strip using the camera
-* Extract medicine name using OCR
-* Display complete medicine details
-
-### 🤖 AI Medicine Assistant *(Future)*
-
-* Explain medicines in simple language
-* Answer medicine-related questions
-* Compare similar medicines
-* Provide educational information
-
-### 📍 Nearby Pharmacy Locator *(Future)*
-
-* Find nearby pharmacies
-* Check medicine availability
-* View pharmacy locations
-
-### ⏰ Medicine Reminder *(Future)*
-
-* Schedule medicine reminders
-* Daily notification support
-
-### 👤 User Authentication
-
-* Secure Login
-* Registration
-* JWT Authentication
-
-### 🛠️ Admin Dashboard
-
-* Manage medicine database
-* Add, update, and delete medicines
-* Upload medicine records
-* View application analytics
+To build a transparent and intelligent healthcare platform that empowers people to make informed decisions about medicines while helping pharmacies and distributors manage medicine information more efficiently.
 
 ---
 
-## 🏗️ Technology Stack
+# 👥 Target Users
 
-### Mobile Application
+* Patients & Consumers
+* Retail Pharmacies
+* Wholesale Medical Distributors
+* Healthcare Administrators
 
-* Java
-* XML
-* Android Studio
-* Material Design
+---
+
+# 🚀 Core Features
+
+## For Users
+
+* Medicine Search
+* Generic Medicine Finder
+* MRP Verification
+* Medicine Details
+* Price Comparison
+* AI Healthcare Assistant *(Future)*
+* Barcode Scanner *(Future)*
+* OCR Medicine Recognition *(Future)*
+* Nearby Pharmacy Finder *(Future)*
+
+## For Pharmacies
+
+* Inventory Management
+* Medicine Availability
+* Stock Updates
+* Order Management
+
+## For Wholesale Distributors
+
+* Product Catalog Management
+* Bulk Inventory Tracking
+* Retailer Management
+* Sales Analytics
+
+## For Administrators
+
+* User Management
+* Medicine Database Management
+* Analytics Dashboard
+* Reports
+* Platform Monitoring
+
+---
+
+# 🛠️ Proposed Technology Stack
+
+### Frontend
+
+* React.js
+* Tailwind CSS
+* Material UI
 
 ### Backend
 
@@ -104,71 +87,28 @@ Millions of people overpay for medicines or lack access to reliable information 
 
 * PostgreSQL
 
-### AI & Intelligent Features (Planned)
+### AI Services (Future)
 
 * Python
 * FastAPI
 * LangChain
-* Vector Database (RAG)
+* RAG
 
-### Tools
+### Cloud & DevOps
 
-* Git
-* GitHub
-* Postman
-* Docker (Future)
-
----
-
-## 🚀 Development Roadmap
-
-### Phase 1
-
-* Repository setup
-* Project planning
-* Android UI
-* README
-* GitHub management
-
-### Phase 2
-
-* User authentication
-* Medicine search
-* Medicine details
-* Database integration
-
-### Phase 3
-
-* Backend REST APIs
-* Admin panel
-* CRUD operations
-* PostgreSQL integration
-
-### Phase 4
-
-* Barcode scanner
-* OCR integration
-* Generic medicine recommendations
-* AI-powered assistant
-
-### Phase 5
-
-* Testing
-* Deployment
-* Documentation
-* Production improvements
+* Docker
+* GitHub Actions
+* Render / Railway
+* Cloudinary
 
 ---
 
-## 🎯 Project Goals
+# 🎯 Project Goal
 
-* Improve medicine price transparency
-* Promote awareness of generic medicines
-* Reduce unnecessary healthcare expenses
-* Build a scalable healthcare technology platform
-* Apply modern software engineering practices in a real-world project
+CureScan aims to become a comprehensive healthcare technology platform that promotes medicine price transparency, improves access to generic medicines, and provides intelligent digital solutions for patients, pharmacies, and pharmaceutical distributors.
 
 ---
+
 
 ## 📂 Project Status
 
