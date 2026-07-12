@@ -1,19 +1,72 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { Stethoscope, Menu } from 'lucide-react'
+
+const navLinks = ['Home', 'Features', 'About', 'Contact']
 
 function Navbar() {
   return (
-    <nav style={{ padding: '1rem 2rem', borderBottom: '1px solid #e5e7eb' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link to="/" style={{ fontSize: '1.25rem', fontWeight: '700', color: '#0f172a', textDecoration: 'none' }}>
-          CureScane
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl"
+    >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-3">
+          <motion.div
+            whileHover={{ scale: 1.05, rotate: 4 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="rounded-2xl bg-gradient-to-br from-blue-600 to-emerald-500 p-2.5 shadow-lg shadow-blue-100"
+          >
+            <Stethoscope className="h-5 w-5 text-white" />
+          </motion.div>
+          <div>
+            <p className="text-lg font-semibold text-slate-900">CureScan</p>
+            <p className="text-xs text-slate-500">Smart medicine insights</p>
+          </div>
         </Link>
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <Link to="/" style={{ color: '#334155', textDecoration: 'none' }}>Home</Link>
-          <a href="#features" style={{ color: '#334155', textDecoration: 'none' }}>Features</a>
-          <a href="#about" style={{ color: '#334155', textDecoration: 'none' }}>About</a>
+
+        <div className="hidden items-center gap-7 md:flex">
+          {navLinks.map((link) => {
+            const href = link === 'Home' ? '/' : `#${link.toLowerCase()}`
+            return (
+              <motion.a
+                key={link}
+                href={href}
+                whileHover={{ y: -2, scale: 1.02 }}
+                transition={{ duration: 0.2, ease: 'easeInOut' }}
+                className="group relative text-sm font-medium text-slate-600 transition hover:text-blue-600"
+              >
+                {link}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 transition-all duration-300 group-hover:w-full" />
+              </motion.a>
+            )
+          })}
         </div>
-      </div>
-    </nav>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-600"
+          >
+            Login
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-100"
+          >
+            Get Started
+          </motion.button>
+        </div>
+
+        <button className="rounded-full border border-slate-200 p-2 text-slate-700 md:hidden">
+          <Menu className="h-5 w-5" />
+        </button>
+      </nav>
+    </motion.header>
   )
 }
 
