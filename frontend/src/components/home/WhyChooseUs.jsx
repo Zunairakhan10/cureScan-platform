@@ -10,7 +10,7 @@ const benefits = [
 function WhyChooseUs() {
   return (
     <section id="about" className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 rounded-[2rem] border border-slate-200 bg-gradient-to-br from-white to-blue-50/70 p-8 shadow-[0_25px_80px_-30px_rgba(37,99,235,0.35)] lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 rounded-[2rem] border border-slate-200/80 bg-gradient-to-br from-white to-blue-50/70 p-8 shadow-[0_25px_80px_-30px_rgba(37,99,235,0.35)] lg:grid-cols-[0.95fr_1.05fr] lg:p-12">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -31,7 +31,7 @@ function WhyChooseUs() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="rounded-[1.75rem] border border-slate-200 bg-white/90 p-6 shadow-lg shadow-slate-100"
+          className="rounded-[1.75rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_24px_70px_-30px_rgba(15,23,42,0.24)]"
         >
           <div className="flex items-center gap-3 rounded-2xl bg-emerald-50 p-4 text-emerald-700">
             <HeartHandshake className="h-6 w-6" />

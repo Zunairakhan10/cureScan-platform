@@ -49,22 +49,25 @@ function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.55, ease: 'easeInOut' }}
-                whileHover={{ y: -6, scale: 1.01 }}
-                className="group rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.18)] transition duration-300 hover:shadow-[0_25px_70px_-20px_rgba(37,99,235,0.25)]"
+                whileHover={{ y: -8, scale: 1.02, boxShadow: '0 24px 80px -24px rgba(37,99,235,0.28)' }}
+                className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/80 p-7 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.18)] backdrop-blur-sm"
               >
-                <motion.div
-                  whileHover={{ rotate: 8, scale: 1.08 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                  className={`inline-flex rounded-2xl bg-gradient-to-br ${feature.accent} p-3 text-white`}
-                >
-                  <Icon className="h-6 w-6" />
-                </motion.div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
-                <a href="#" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
-                  Learn more
-                  <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                </a>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-transparent to-emerald-500/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="relative">
+                  <motion.div
+                    whileHover={{ rotate: 8, scale: 1.08 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className={`inline-flex rounded-2xl bg-gradient-to-br ${feature.accent} p-3 text-white`}
+                  >
+                    <Icon className="h-6 w-6" />
+                  </motion.div>
+                  <h3 className="mt-5 text-xl font-semibold text-slate-900">{feature.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{feature.description}</p>
+                  <a href="#" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
+                    Learn more
+                    <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  </a>
+                </div>
               </motion.article>
             )
           })}
