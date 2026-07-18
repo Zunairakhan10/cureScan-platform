@@ -1,14 +1,21 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, BadgeCheck, Pill, Search, ShieldCheck } from 'lucide-react'
 
 function Hero() {
+  const navigate = useNavigate();
   const [searchState, setSearchState] = useState('idle')
+  const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    setSearchState('searching')
-    window.setTimeout(() => setSearchState('found'), 1000)
+  if (!query.trim()) {
+    alert("Please enter a medicine name")
+    return
   }
+
+  navigate(`/search?medicine=${query}`)
+}
 
   return (
     <section className="hero-surface relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -58,6 +65,15 @@ function Hero() {
           >
             Compare medicine prices, discover affordable generic alternatives, and make smarter healthcare decisions.
           </motion.p>
+          <div className="mt-8 max-w-md">
+  <input
+    type="text"
+    placeholder="Search medicine..."
+    value={query}
+    onChange={(e) => setQuery(e.target.value)}
+    className="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-slate-700 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+  />
+</div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
