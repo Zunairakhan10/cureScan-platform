@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
 
 function CTA() {
+  const navigate = useNavigate()
   return (
     <section id="contact" className="px-4 pb-14 sm:px-6 lg:px-8 lg:pb-16">
       <motion.div
@@ -33,6 +35,7 @@ function CTA() {
             whileHover={{ scale: 1.03, boxShadow: '0 0 24px rgba(16, 185, 129, 0.28)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
+            onClick={() => navigate('/search')}
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-950/20"
           >
             Get Started

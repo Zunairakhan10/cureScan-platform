@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Stethoscope, Menu } from 'lucide-react'
 
 const navLinks = ['Home', 'Features', 'About', 'Contact']
 
 function Navbar() {
+  const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -68,6 +69,7 @@ function Navbar() {
             whileHover={{ scale: 1.05, boxShadow: '0 0 24px rgba(16, 185, 129, 0.24)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
+            onClick={() => navigate('/search')}
             className="rounded-full bg-gradient-to-r from-blue-600 to-emerald-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-100"
           >
             Get Started

@@ -7,15 +7,28 @@ function Hero() {
   const navigate = useNavigate();
   const [searchState, setSearchState] = useState('idle')
   const [query, setQuery] = useState("");
+  const [helperText, setHelperText] = useState("");
 
   const handleSearch = () => {
-  if (!query.trim()) {
-    alert("Please enter a medicine name")
-    return
+    const trimmedQuery = query.trim();
+
+    if (!trimmedQuery) {
+      setHelperText('Please enter a medicine name to continue.');
+      return;
+    }
+
+    setHelperText('');
+    navigate(`/search?medicine=${encodeURIComponent(trimmedQuery)}`)
   }
 
-  navigate(`/search?medicine=${query}`)
-}
+  const handleGetStarted = () => {
+    const trimmedQuery = query.trim();
+    const targetPath = trimmedQuery
+      ? `/search?medicine=${encodeURIComponent(trimmedQuery)}`
+      : '/search';
+
+    navigate(targetPath);
+  }
 
   return (
     <section className="hero-surface relative overflow-hidden px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
@@ -66,14 +79,22 @@ function Hero() {
             Compare medicine prices, discover affordable generic alternatives, and make smarter healthcare decisions.
           </motion.p>
           <div className="mt-8 max-w-md">
-  <input
-    type="text"
-    placeholder="Search medicine..."
-    value={query}
-    onChange={(e) => setQuery(e.target.value)}
-    className="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-slate-700 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-  />
-</div>
+            <input
+              type="text"
+              placeholder="Search medicine..."
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value)
+                if (helperText) {
+                  setHelperText('')
+                }
+              }}
+              className="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-slate-700 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+            />
+            {helperText && (
+              <p className="mt-2 text-sm text-rose-600">{helperText}</p>
+            )}
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,9 +117,10 @@ function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
+              onClick={handleGetStarted}
               className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 font-semibold text-slate-700 transition hover:border-blue-200 hover:text-blue-600"
             >
-              Explore Platform
+              Get Started
               <motion.span whileHover={{ x: 3 }} transition={{ duration: 0.2 }}>
                 <ArrowRight className="h-4 w-4" />
               </motion.span>
