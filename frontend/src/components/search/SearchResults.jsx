@@ -2,6 +2,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Pill, SearchX } from "lucide-react";
 import MedicineCard from "./MedicineCard";
+import EmptyState from "./EmptyState";
 
 const SearchResults = ({ results, hasSearched, query }) => {
   if (!hasSearched) {
@@ -26,18 +27,8 @@ const SearchResults = ({ results, hasSearched, query }) => {
 
   if (results.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-[1.75rem] border border-slate-200/80 bg-white/70 px-6 py-10 text-center shadow-[0_18px_45px_-24px_rgba(15,23,42,0.4)] backdrop-blur-xl"
-      >
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-700">
-          <Pill className="h-6 w-6" />
-        </div>
-        <h2 className="mt-5 text-xl font-semibold text-slate-900">No medicines found</h2>
-        <p className="mx-auto mt-2 max-w-lg text-sm leading-7 text-slate-600 sm:text-base">
-          Try a broader term like “pain” or “antibiotic” to find the medicine you need.
-        </p>
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+        <EmptyState message={'Try a broader term like “pain” or “antibiotic” to find the medicine you need.'} />
       </motion.div>
     );
   }
@@ -59,7 +50,7 @@ const SearchResults = ({ results, hasSearched, query }) => {
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         <AnimatePresence mode="popLayout">
           {results.map((medicine) => (
-            <MedicineCard key={medicine.id} medicine={medicine} />
+            <MedicineCard key={medicine.id} medicine={medicine} query={query} />
           ))}
         </AnimatePresence>
       </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 
 const SearchBar = ({ onSearch, initialValue = "" }) => {
   const [query, setQuery] = useState(initialValue);
@@ -31,6 +31,19 @@ const SearchBar = ({ onSearch, initialValue = "" }) => {
             placeholder="Search medicines, brands, or symptoms..."
             className="w-full border-0 bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400 sm:text-base"
           />
+          {query && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                onSearch("");
+              }}
+              aria-label="Clear search"
+              className="-mr-2 inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </label>
         <button
           type="submit"
