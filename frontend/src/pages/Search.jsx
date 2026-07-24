@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
+import axios from "axios";
 import SearchBar from "../components/search/SearchBar";
 import SearchResults from "../components/search/SearchResults";
-import medicines from "../data/medicines";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
   const [results, setResults] = useState([]);
+  const [allMedicines, setAllMedicines] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [query, setQuery] = useState(searchParams.get("medicine") ?? "");
 
-  const handleSearch = (value) => {
+  const handleSearch = (value, source = allMedicines) => {
     const normalizedQuery = value.trim().toLowerCase();
     setQuery(value);
 
@@ -21,7 +22,7 @@ const Search = () => {
       return;
     }
 
-    const filteredMedicines = medicines.filter((medicine) => {
+    const filteredMedicines = source.filter((medicine) => {
       const searchableText = [
         medicine.name,
         medicine.type,
@@ -39,10 +40,28 @@ const Search = () => {
   };
 
   useEffect(() => {
+    const fetchMedicines = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:5000/api/medicines");
+        setAllMedicines(data);
+        if (query.trim()) {
+          handleSearch(query, data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch medicines:", error);
+      }
+    };
+
+    fetchMedicines();
+  }, []);
+
+  useEffect(() => {
     const initialValue = searchParams.get("medicine") ?? "";
     setQuery(initialValue);
-    handleSearch(initialValue);
-  }, [searchParams]);
+    if (initialValue.trim() && allMedicines.length) {
+      handleSearch(initialValue, allMedicines);
+    }
+  }, [searchParams, allMedicines]);
 
   return (
     <div className="min-h-screen bg-transparent px-4 py-8 sm:px-6 lg:px-8">
